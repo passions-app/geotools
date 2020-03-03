@@ -21,6 +21,20 @@ use League\Geotools\Coordinate\CoordinateInterface;
 interface GeohashInterface
 {
     /**
+     * The minimum length of the geo hash.
+     *
+     * @var integer
+     */
+    const MIN_LENGTH = 1;
+
+    /**
+     * The maximum length of the geo hash.
+     *
+     * @var integer
+     */
+    const MAX_LENGTH = 12;
+
+    /**
      * Returns a geo hash string.
      *
      * @param CoordinateInterface $coordinate The coordinate to encode.
@@ -28,7 +42,7 @@ interface GeohashInterface
      *
      * @return GeohashInterface
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function encode(CoordinateInterface $coordinate, $length = self::MAX_LENGTH);
 
@@ -42,8 +56,8 @@ interface GeohashInterface
      *
      * @return GeohashInterface
      *
-     * @throws InvalidArgumentException
-     * @throws RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      */
     public function decode($geohash);
 }
